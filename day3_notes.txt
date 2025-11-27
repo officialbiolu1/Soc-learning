@@ -1,0 +1,6 @@
+Day 3 Notes - Permissions + Users/Groups
+chmod 700 = owner full permission only
+chmod 770 = owner + group read/write/execute
+stat shows numeric permissions + metadata
+adduser = create new system user
+usermod -aG = add user to group
