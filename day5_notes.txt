@@ -1,0 +1,13 @@
+Day 5 Notes - Network Monitoring & Firewall
+ip a = shows all network interfaces and IP addresses
+ss -tulwn = shows open ports + listening services
+ip route = shows default gateway and routing rules
+nslookup = checks DNS resolution
+ufw status = shows if firewall is active
+ufw enable = activates firewall
+ufw allow ssh = allows SSH on port 22
+ufw deny 8080 = blocks port 8080
+auth.log = shows login attempts, sudo attempts, ssh activity
+dmesg = kernel messages (hardware, drivers, crashes)
+grep failed in auth.log = identifies failed login attempts
+grep sudo auth.log = shows all sudo activity
