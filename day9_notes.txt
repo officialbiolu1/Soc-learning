@@ -1,0 +1,92 @@
+==== DAY 9: Attack Simulation + Detection ====
+Created hidden directory and fake malware script: ~/.hidden_attack/keylogger.sh
+Detected hidden directory using ls -la: .hidden_attack
+Used ps aux | grep keylogger to inspect suspicious proccesses
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 32 with keysym 32 (keycode b).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 34 with keysym 34 (keycode d).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 35 with keysym 35 (keycode e).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 33 with keysym 33 (keycode c).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 36 with keysym 36 (keycode f).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 38 with keysym 38 (keycode 11).
+Dec 01 12:28:36 R gnome-shell[1434]: Window manager warning: Overwriting existing binding of keysym 39 with keysym 39 (keycode 12).
+Dec 01 12:28:36 R dbus-daemon[1307]: [session uid=1000 pid=1307] Activating service name='org.gnome.ArchiveManager1' requested by ':1.138' (uid=1000 pid=2975 comm="gjs /usr/share/gnome-shell/extensions/ding@rasters" label="unconfined")
+Dec 01 12:28:41 R dbus-daemon[1307]: [session uid=1000 pid=1307] Successfully activated service 'org.gnome.ArchiveManager1'
+Dec 01 12:28:41 R gnome-shell[1434]: DING: Detected async api for thumbnails
+Dec 01 12:28:41 R gnome-shell[1434]: DING: GNOME nautilus 42.6
+Dec 01 12:28:45 R nautilus[2968]: Could not delete '.meta.isrunning': No such file or directory
+Dec 01 12:28:49 R systemd[1]: fprintd.service: Deactivated successfully.
+Dec 01 12:30:01 R CRON[3016]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Dec 01 12:30:01 R CRON[3017]: (root) CMD ([ -x /etc/init.d/anacron ] && if [ ! -d /run/systemd/system ]; then /usr/sbin/invoke-rc.d anacron start >/dev/null; fi)
+Dec 01 12:30:01 R CRON[3016]: pam_unix(cron:session): session closed for user root
+Dec 01 12:34:28 R systemd[1]: Started Run anacron jobs.
+Dec 01 12:34:28 R anacron[3026]: Anacron 2.3 started on 2025-12-01
+Dec 01 12:34:28 R anacron[3026]: Normal exit (0 jobs run)
+Dec 01 12:34:28 R systemd[1]: anacron.service: Deactivated successfully.
+Nov 25 15:57:15 R sudo[2521]: pam_unix(sudo:auth): authentication failure; logname= uid=1000 euid=0 tty=/dev/pts/0 ruser=rust rhost=  user=rust
+Nov 25 15:57:30 R sudo[2521]:     rust : 3 incorrect password attempts ; TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt update
+Nov 25 15:58:38 R sudo[2524]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt update
+Nov 25 15:58:38 R sudo[2524]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 25 16:00:11 R sudo[2524]: pam_unix(sudo:session): session closed for user root
+Nov 25 16:00:12 R sudo[3065]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt upgrade -y
+Nov 25 16:00:12 R sudo[3065]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 25 16:23:59 R sudo[3065]: pam_unix(sudo:session): session closed for user root
+Nov 25 16:24:44 R sudo[36457]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/reboot
+Nov 25 16:24:44 R sudo[36457]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 25 16:24:44 R sudo[36457]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:28:30 R sudo[2477]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt update
+Nov 26 08:28:30 R sudo[2477]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:31:01 R sudo[2477]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:31:41 R sudo[2941]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt upgrade -y
+Nov 26 08:31:41 R sudo[2941]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:32:24 R sudo[2941]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:32:50 R sudo[3450]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install net-tools -y
+Nov 26 08:32:50 R sudo[3450]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:33:06 R sudo[3450]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:33:49 R sudo[3545]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install curl -y
+Nov 26 08:33:49 R sudo[3545]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:34:04 R sudo[3545]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:34:20 R sudo[3637]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install wget -y
+Nov 26 08:34:20 R sudo[3637]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:34:24 R sudo[3637]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:34:44 R sudo[3668]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install htop -y
+Nov 26 08:34:44 R sudo[3668]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:35:04 R sudo[3668]: pam_unix(sudo:session): session closed for user root
+Nov 26 08:35:38 R sudo[3793]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install tree -y
+Nov 26 08:35:38 R sudo[3793]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 08:35:53 R sudo[3793]: pam_unix(sudo:session): session closed for user root
+Nov 26 18:07:57 R sudo[5167]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt update
+Nov 26 18:07:57 R sudo[5167]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 18:09:30 R sudo[5167]: pam_unix(sudo:session): session closed for user root
+Nov 26 18:09:30 R sudo[6112]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt upgrade -y
+Nov 26 18:09:30 R sudo[6112]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 18:09:35 R sudo[6112]: pam_unix(sudo:session): session closed for user root
+Nov 26 18:16:27 R sudo[8844]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/apt install git -y
+Nov 26 18:16:27 R sudo[8844]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 26 18:18:29 R sudo[8844]: pam_unix(sudo:session): session closed for user root
+Nov 27 18:09:39 R sudo[2594]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/adduser testuser
+Nov 27 18:09:39 R sudo[2594]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 27 18:14:12 R sudo[2594]: pam_unix(sudo:session): session closed for user root
+Nov 27 18:24:54 R sudo[2733]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/usermod -aG sudo testuser
+Nov 27 18:24:54 R sudo[2733]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 27 18:24:54 R usermod[2735]: add 'testuser' to group 'sudo'
+Nov 27 18:24:54 R usermod[2735]: add 'testuser' to shadow group 'sudo'
+Nov 27 18:24:54 R sudo[2733]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:23:29 R sudo[1947]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/ss -tulwn
+Nov 29 17:23:29 R sudo[1947]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:23:29 R sudo[1947]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:30:24 R sudo[2090]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/ufw status
+Nov 29 17:30:24 R sudo[2090]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:30:24 R sudo[2090]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:31:30 R sudo[2098]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/ufw enable
+Nov 29 17:31:30 R sudo[2098]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:31:32 R sudo[2098]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:32:29 R sudo[2249]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/ufw allow ssh
+Nov 29 17:32:29 R sudo[2249]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:32:30 R sudo[2249]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:33:32 R sudo[2279]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/sbin/ufw deny 8080
+Nov 29 17:33:32 R sudo[2279]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:33:32 R sudo[2279]: pam_unix(sudo:session): session closed for user root
+Nov 29 17:34:48 R sudo[2314]:     rust : TTY=pts/0 ; PWD=/home/rust ; USER=root ; COMMAND=/usr/bin/cat /var/log/auth.log
+Nov 29 17:34:48 R sudo[2314]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+Nov 29 17:34:48 R sudo[2314]: pam_unix(sudo:session): session closed for user root
+Removed suspicious directory: ~/.hidden_attack
