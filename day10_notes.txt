@@ -1,0 +1,36 @@
+My VM IP is 10.0.2.15 on interface enp0s3
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-12-01 18:48 WAT
+Nmap scan report for _gateway (10.0.2.2)
+Host is up (0.00047s latency).
+MAC Address: 52:55:0A:00:02:02 (Unknown)
+Nmap scan report for 10.0.2.3
+Host is up (0.00039s latency).
+MAC Address: 52:55:0A:00:02:03 (Unknown)
+Nmap scan report for R (10.0.2.15)
+Host is up.
+Nmap done: 256 IP addresses (3 hosts up) scanned in 3.29 seconds
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-12-01 18:55 WAT
+Nmap scan report for _gateway (10.0.2.2)
+Host is up (0.00039s latency).
+MAC Address: 52:55:0A:00:02:02 (Unknown)
+Nmap scan report for 10.0.2.3
+Host is up (0.00038s latency).
+MAC Address: 52:55:0A:00:02:03 (Unknown)
+Nmap scan report for R (10.0.2.15)
+Host is up.
+Nmap done: 256 IP addresses (3 hosts up) scanned in 3.28 seconds
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-12-01 19:13 WAT
+Nmap scan report for R (10.0.2.15)
+Host is up (0.000022s latency).
+All 1000 scanned ports on R (10.0.2.15) are closed
+
+Nmap done: 1 IP address (1 host up) scanned in 0.94 seconds
+-sS = SYN scan (stealth)
+-p 1-1000 = scans common ports
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-12-01 19:18 WAT
+Nmap scan report for R (10.0.2.15)
+Host is up (0.000022s latency).
+All 1000 scanned ports on R (10.0.2.15) are closed
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 2.71 seconds
