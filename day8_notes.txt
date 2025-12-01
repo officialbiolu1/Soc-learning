@@ -1,0 +1,4 @@
+Day 8 Notes - Detecting Suspicious Activity + Simple Incident Response
+Suspicious executable detected in SOC_Labs folder
+Killed suspicious background process using kill command
+INCIDENT SUMMARY: A suspicious executable was created, detected, and terminated. No persitence found.
