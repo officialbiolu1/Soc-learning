@@ -1,0 +1,6 @@
+Day 11 - Log Correlation & Basic SIEM Thinking
+Log correlation = connecting multiple events accross time to detect threaths
+Checked broader auth keywords: fail / authentication / sudo
+Simulated attack chain: create user + change password + delete account
+Observed timeline of events using journalctl
+Correlation Rule 1: Multiple failures + success + user creation = high risk account compromise
