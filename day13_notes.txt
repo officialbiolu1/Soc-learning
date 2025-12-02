@@ -1,0 +1,9 @@
+DAY 13 - Automated Detection + Alert Rules (SIEM Fundamentals)
+Learned: alert rules trigger when certain conditions are met in logs
+Detection rule created: journalctl | grep -i 'failed' | wc -l
+Detection rule for new user: journalctl | grep -i 'useradd'
+Detection rule for privilege escalation: journalctl | grep -i 'sudo' and 'authentication failure'
+Process alert logic: Any process >50% CPU is suspicious
+Network alert logic: Any listening port not 22/80/443 is suspicious
+ALERT FORMAT: TIME | USER | EVENT | SEVERITY | ACTION
+2025-12-02 | unknown | failed login | high | investigate
