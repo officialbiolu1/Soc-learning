@@ -1,0 +1,8 @@
+DAY 12 - Live Threat Detection + Behavior Profiling
+Used htop to inspect live processes for abnormal CPU/MEM usage and strange names
+Listed top CPU and memory-consuming processes with ps aux --sort
+Inspected live network connections using netstat -tulnp
+Launched a high-CPU test process (yes > /dev/null &) and detected it
+Terminated suspicious test process successfully
+Checked user sessions using w, who, and last
+Audited command history for risky activity patterns
