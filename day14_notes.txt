@@ -1,0 +1,20 @@
+root:x:0:0:root:/root:/bin/bash
+rust:x:1000:1000:R.ust,,,:/home/rust:/bin/bash
+testuser:x:1001:1001:,,,:/home/testuser:/bin/bash
+cat /etc/passwd | grep bash helps to identify who has shell access
+How i Identify SUspicious Services- i do not disable based on name alone,i inspect systemctl.cat,i check ExecStart path,i confirm file location & ownership.If unsure,i document-i don't touch.Critical red flag paths: /tmp,/home,/var/tmp. Critical red flag behavior:curl, wget, bash scripts . systemctl list-unit-files --type=service | grep enabled is used to list unit files enabled so i can identify anything i find suspicious and disable it with sudo systemctl disable [service_name]
+[?2004h[?1049h[22;0;0t[1;24r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[22;35H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 6.2                  /etc/ssh/sshd_config                            [1;79H(B[m[23d(B[0;7m^G(B[m Help[14G(B[0;7m^O(B[m Write Out (B[0;7m^W(B[m Where Is  (B[0;7m^K(B[m Cut[53G(B[0;7m^T(B[m Execute   (B[0;7m^C(B[m Location[24d(B[0;7m^X(B[m Exit[14G(B[0;7m^R(B[m Read File (B[0;7m^\(B[m Replace   (B[0;7m^U(B[m Paste     (B[0;7m^J(B[m Justify   (B[0;7m^/(B[m Go To Line[2d[?12l[?25h[?25l[1;54H(B[0;7m*[79G(B[m[3d[?12l[?25h[?25l[4d[?12l[?25h[24;1H[?1049l[23;0;0t[?1l>[?2004lSystem Hardening -SSH 
+- /etc/ssh/sshd_config did not exist initially 
+- Confirmed OpenSSH was not installed 
+- Installed openssh-server 
+- Created new sshd_config automatically 
+- Configured: -PermitRootLogin no, -PasswordAuthentication yes 
+- Restarted SSH sucessfully
+sudo find / -perm -4000 -type f 2>/dev/null list SUID binaries that could be dangerous
+check for cron jobs using crontab -l and ls -la /etc/cron* to look for jobs that could restart malicious scripts
+cat ~/.bashrc, cat ~/.profile, cat /etc/profile. Attackers often hide command here so we check any unsual lines
+ls -la /tmp, ls -la /var/tmp,check the files if anything looks suspicious with file [filename], strings [filename]
+1) Attacker survives reboot through persistence
+2) Most dangerous Linux persistence: cron jobs
+3) Cron can restart malicious scripts automatically
+4) Common hiding spots: /tmp, /var/tmp
