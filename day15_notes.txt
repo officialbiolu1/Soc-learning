@@ -1,0 +1,6 @@
+An unsual event in systems logs is anything that does not match normal.We look out for Authentication anomalies: Multiple failed pswrd or authentication failure messages, Login from an unfamiliar IP adress, Login at an abnormal time(e.g,2-5am), A user logging in for the first time, Privilege escalation activity: Sudo being used frequently, User added to sudo or admin group, su attempt or successes, Any change to /etc/sudoers, 
+ -BOTTOM LINE:IF YOU HAVE TO ASK WHY IS THIS HERE? - THAT'S AN UNUSUAL EVENT. And the format is [TIME] - [WHAT LOOKS WRONG] - [WHY IS IT SUSPICIOUS]. e.g 14:32 - Multiple failed SSH logins from 10.0.2.2.20 - Brute-force indicator
+cat ~/.bash_history helps track command executed by users, sudo cat /var/log/auth.log | tail -n 100 helps look for failed logins, sudo commands, or unusual login
+Intrusion Timeline:
+ E.G [2025-12-01 14:32] Failed SSH login for user 'testuser' from IP 10.0.2.50
+ [2025-12-01 14:35] Suspicious process 'malware_sim' started with PID 4321 \N [2025-12-01 14:40] Outbound connection to 192.168.1.100 detected
