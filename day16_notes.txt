@@ -1,0 +1,14 @@
+ Day 16 - Brute- Force + Credential Attack Detection 
+ key logs to check: sudo journalctl | grep -i failed,authentication failure, invalid user , accepted.
+  You also check sudo cat /var/log/auth.log | grep -i failed and grep -i accepted. 
+ What a Brute-Force Attack looks like: Same IP repeating many times, Same username hammered repeatedly, Many users tried from one IP, A success(Accepted) after many failures
+ Credential-Stuffing vs Brute-Force:
+ Brute-force is many passwords tried on one account. 
+ Credential stuffing is one password tried on many accounts. 
+ Password spray is using common password(123456)on many users.
+ Targeted attack is one account,repeated slow attempts.
+ Simulated Test:
+ If 1 IP hits 1 user 40 times in 2 minutes ,that is BRUTE-FORCE.
+ If 1 IP tries 1 password on 50 users, that is CREDENTIAL STUFFING.
+ If 1 IP tries 5 passwords slowly over 2 hours, that is TARGETED ATTACK.\N Defense Actions:
+ After detecting brute-force attempts, the correct response includes monitoring, blocking the IP, reviewing account integrity, and strengthening authentication controls.
