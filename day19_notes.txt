@@ -1,0 +1,28 @@
+EMAIL ATTACK ANALYSIS(phishing,headers,payloads) 
+ What makes an email suspicious: 
+ -Urgency:Act now, Account suspended, Final warning. 
+ -Threats or fear:Your account will be closed. 
+ -Unknown sender or misspelled domain. 
+ -Links that don't match what they say. 
+ -Attachments:.zip, .exe, .html, .iso, .docm, .xlsm 
+ -Bad grammar / weird formatting. 
+ -Too good to be true offers. 
+ HEADER ANALYSIS 
+ we inspect From: (can be faked), Reply-To:(where replies really go), Return-Path: (true sender), Received: (path the email took), SPF/ DKIM/ DMARC result. 
+ we focus on mismatch between From: and Return-Path, strange IPs/countries in Received: ,SPF/ DKIM = fail or soft fail 
+ NOTE: If From domain is not the same as return-path domain, it is HIGH RISK.
+ LINK INSPECTION 
+ never click links.we only inspect them. We check if 
+ -is it IP based?(e.g http://185.23.55.2) 
+ -Does it use weird domain endings (.ru, .cn, .tk) 
+ -Too many sub-domains?(paypal.secure.login.verify.ru) 
+ NOTE: Legit companies don't use random subdomains or foreign domains. 
+ ATTACHMENT ANALYSIS 
+ High risk extensions: .exe, .msi, .vbs, .bat, .scr, .docm/ .xlsm(macros), .html(fake login page). 
+ if this is seen as an analyst, FLAG IT, QUARANTINE IT, BLOCK SENDER, CREATE indicator(IOC) for the file name or hash.
+ NOTE: Any attaachment + urgency = HIGH probability of malware. 
+ TEST 
+ -Why attackers prefer email: Attackers prefer email because it targets human trust and emotion while bypassing many technical controls.
+ -Why headers is more important than body is because they reveal the true sender path, authentication results(SPF,DKIM,DMARC),and system behavior that cannot be hidden by visual tricks. 
+ -Macros are dangerous because they allow hidden scripts to automatically execute malicious code, download payloads or open backdoors once enabled. 
+ - Link inspection is important because the visible text can be legitimate while the actual URL redirects to a malicious domain or IP.
