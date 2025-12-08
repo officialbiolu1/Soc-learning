@@ -1,0 +1,34 @@
+DAY 18- MITRE ATTACK FRAMEWORK & MAPPING 
+ 12 MAIN TACTICS ON HOW ATTACKERS OPERATE. 
+ -Initial Acess(How attaker enters.) 
+ - Execution(Running malicious code) 
+ -Persistence(Staying after reboot) 
+ - Privilege Escalation(Becoming root/admin) 
+ -Defense Evasion(Hiding activity) 
+ -Credential Access(Stealing passwords/keys) 
+ -Discovery(Learning the system) 
+ Lateral Movement(Move accross systems) 
+ - Collection(Gathering data) 
+ - Command and Control (C2) -(Communicating out). 
+ - Exfiltration(Stealing data out) 
+ - Impact -Damage(ransomware destruction)
+my test answer:tried logging in and i got access after trying for the 5th time. 
+ SO the correct MITRE mapping is : 
+ Tactic: Credential Access. 
+ Technique: T1110 - Brute Force 
+ SUb-technique(optional): T1110.001 - Password Guessing
+ls -la /var/spool/cron/ , crontab -l , ls -la /etc/cron* 
+ These are the places we check in real investigations for cronjobs
+WHERE THE CRON ENTRY IS STORED: 
+ /var/spool/cron/crontabs. 
+ HOW OFTEN IT EXECUTES:
+  Every 1 minute because the schedule while creating the cronjob was */1 * * * *(meaning run once every minute , every hour, every day). 
+ HOW I WOULD FIND IT AS A DEFENDER: 
+ As a SOC analyst, I will check crontab -l, ls -la /var/spool/cron/crontabs, ls -la /etc/cron*, cat /etc/crontab. 
+ I am looking for unknown commands, random file names, scripts running from /tmp, /home, or /var/tmp, unsual execution frequency(every minute,every boot). 
+ MITRE Technique ID: T1053.003-SCHEDULED TASK/CRON
+TEST: 
+ -MITRE ATTACK usefulness:mitre attack is useful because it provides a structured, standardized knowledge base of how attackers operate (tactics, technique, sub-techniques). It allows analysts to classify, communicate, detect, and respond to attacks using a common professional framework.
+ BRUTE FORCE CLASSIFICATION: Brute force falls under Credential access -T1110(Brute force),subtechniques are password spraying,credential stuffing,SSH brute force. 
+ RANSOMWARE CLASSIFICATION: Ransomware mainly falls under IMPACT(T1486-Data encrypted for impact). 
+ WHY IS MAPPING IMPORTANT: Mapping is important because it allows defenders to link observed behavior to a standardized attacker tactic and technique,enabling faster detection, accurate documentation, threat hunting, and improved response playbooks
