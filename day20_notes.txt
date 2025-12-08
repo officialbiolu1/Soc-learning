@@ -1,0 +1,12 @@
+ENDPOINT MONITORING(LINUX + WINDOWS INTRO) 
+ Linux Endpoint Monitoring:
+ -Process monitoring(Find abnormal process with ps aux --sort=-%cpu | head.) No abnormal process found after check.
+ -Startup & Persitence monitoring(check for suspicious startup items with systemctl list-unit-files) No suspicious startup entries found after check. 
+ -Cron jobs(using crontab -l, ls -la /etc/cron.*)Cron clean after check. 
+ -Temporary folder scan(using ls -la /tmp, ls -la /var/tmp).Temp folder clean after check.
+ -Auth & security logs(using jounalctl -u ssh, journalctl | grep -i failed, journalctl |grep -i denied) No suspicious auth events found after check.
+ TEST 
+ -A linux process is suspicious when it behaves abnormally(unexpected name, unsual directory like /tmp, odd parent process, high resource usage or unexpected network connections. 
+ -Event ID 4624(succesful logon) and 4265(failed logon) are critical for detecting brute-force,account misuse, or lateral movement by analyzing patterns like repeated failures followed by a success. 
+ -Monitoring /tmp and /var/tmp is essential because attackers commonly store malware, scripts, and payloads there. These directories allow write access for any user and rarely monitored. 
+ -Cron jobs are dangerous because they provide silent persitence.Attackers can schedule malicious tasks that blend into normal system activity and are rarely inspected by users
