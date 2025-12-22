@@ -1,0 +1,24 @@
+THREAT EMULATION + DETECTION(SOC - Blue Team Core Skill) 
+ -whoami confirms current user context 
+ - id shows group memberships 
+ - uname reveals OS and kernel info 
+ - hostname identifies the system
+[discovery] 
+ -checked temporary directorieees often abused by attackers 
+ -Listed /etc to understand system configuration surface
+[Persistence] 
+ -Creatednuser-level cron job 
+ -Executes every 30 minutes 
+ -Writes to /tmp (high-risk directory) 
+ -MITRE: T1053.003 (Scheduled Task/Cron)
+[Detection] 
+ - Enumerated user cron jobs 
+ - Identified scheduled task writing to /tmp  
+ - Behavior matches persistence technique
+[MITRE MAPPING] 
+ -Tactic: Persistence 
+ -Technique: Scheduled Task / Cron 
+ - Sub-technique: T1053.003 
+2 [Cleanup] 
+ -Removed test cron job 
+ -Verified no persistence remains
