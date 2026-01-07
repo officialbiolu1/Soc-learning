@@ -1,0 +1,9 @@
+DAY 63 - Malware Static ANalysis
+
+File type: text based(plain text),no executable headers (ELF,PE,Mach-O)
+ -WHY file type matters: because it tells you the execution method: ELF/PE Binary(direct execution),ASCII text(interpreted-bash,python,cron,powershell),shared object(injected or side-loaded),COnfig/text(abused by another process),It defines the attack surface,It changes your analysis path, It reveals the attackers tradecraft, It affects containmment decisions.
+File size: 82 
+ Timestamps:2026-01-07 18:20:39 
+ Anything suspicious: Recently created file in odd location
+Ineresting strings found: URLs,domains,commands and persistence clues which suggests a suspicious file
+sha256sum suspicious_file is hashing the file for intel correlation,used to link incidents, used to confirm known malware
